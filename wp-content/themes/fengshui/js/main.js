@@ -61,7 +61,12 @@
   }
 
   
-  
+  /*
+  var elem = $('.left_door')[0];
+  elem.style.webkitTransform = "rotateY("+(-90)+"deg)";  
+  var elem = $('.right_door')[0];
+  elem.style.webkitTransform = "rotateY("+(90)+"deg)";
+  */
 
 
 

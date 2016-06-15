@@ -174,7 +174,7 @@ Bagua
 .bagua.bagua-top-left{
 	-webkit-transform:rotateY(0deg) rotateX(45deg) translateX(-180px) translateY(-180px);
 }
-.bagua.bagua-top-left .side{
+.bagua.bagua-top-left .side,.bagua.bagua-top-left .door{
 	background-color:#d67ac6;
 	border:2px solid #962e86;
 }
@@ -182,7 +182,7 @@ Bagua
 .bagua.bagua-center-left{
 	-webkit-transform:rotateY(0deg) rotateX(45deg) translateX(-180px) translateY(0px);
 }
-.bagua.bagua-center-left .side{
+.bagua.bagua-center-left .side, .bagua.bagua-center-left .door{
 	background-color:#9ae2ab;
 	border:2px solid #5BBA72;
 }
@@ -217,8 +217,7 @@ Bagua
 	position: absolute;
 	width:100%;
 	height:100%;
-	overflow:hidden;
-	backface-visibility:hidden;
+	/*backface-visibility:hidden;*/
 	border:1px solid red;
 	opacity:.9;
 	border-radius:2px;
@@ -241,6 +240,7 @@ Bagua
     }
 }
 
+/*HOVER*/
 .bagua:hover{
 	-webkit-transform: translateZ(500px) rotateX(45deg);
 	z-index:200;
@@ -248,13 +248,28 @@ Bagua
 .bagua:hover .side{
 	opacity:1;
 }
+.bagua:hover .door.left_door{
+	-webkit-transform:rotateY(-120deg);
+}
+.bagua:hover .door.right_door{
+	-webkit-transform:rotateY(120deg);
+}
+
+
+
+
+
 
 .bagua .front{
 	-webkit-transform: translateZ(25px);
 	z-index:10;
+	-webkit-perspective: 2000;
+    -webkit-transform-style: preserve-3d;
+    background:transparent;
+    display:none;
 }
 .bagua .back{
-	 -webkit-transform: rotateY(180deg) translateZ(25px);
+	 -webkit-transform: rotateY(180deg) translateZ(25px) rotateY(180deg);
 }
 .bagua .left{
 	-webkit-transform: rotateY(270deg) translateZ(25px);
@@ -271,6 +286,22 @@ Bagua
 .bagua .bottom{
 	-webkit-transform: rotateX(-90deg) translateZ(125px);
 	height:50px;
+}
+.door{
+	position:absolute;
+	width:50%;
+	height:100%;
+	-webkit-transition: all 1.0s linear;
+	transition: all 1.0s linear;
+	overflow:hidden;
+	-webkit-transform:translateZ(25px);
+}
+.door.left_door{
+	-webkit-transform-origin:left;
+}
+.door.right_door{
+	left:50%;
+	-webkit-transform-origin:right center;
 }
 
 
@@ -295,7 +326,7 @@ CUBE
     width: 100%;
 
     -webkit-transform-style: preserve-3d;
-    transition:1s;
+    transition:1s ease-in-out;
     -webkit-transform-origin: 50% 50% -570px;
 
     

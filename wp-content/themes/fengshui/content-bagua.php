@@ -12,10 +12,16 @@
 	foreach($blocks as $key=>$row): ?>
 
 	<div class="bagua <?php echo $key; ?>">
-		<div class="side front"><?php echo $row; ?></div>
+		<div class="door left_door"></div>
+			<div class="door right_door"></div>
+		<div class="side front">
+			
+		</div>
 		<div class="side left"></div>
 		<div class="side right"></div>
-		<div class="side back"></div>
+		<div class="side back">
+			<?php echo $row; ?>
+		</div>
 		<div class="side top"></div>
 		<div class="side bottom"></div>
 	</div>
